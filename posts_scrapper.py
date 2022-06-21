@@ -9,7 +9,7 @@ from typing import Any, Dict, List, Union
 
 MAX_PAGE_NUMBER: int = 3
 SEARCH_ENDPOINT: str = "https://bg.annapurnapost.com/api/search"
-SEARCH_QUERIES: List[str] = ["पाकिस्तान"]
+SEARCH_QUERIES: List[str] = ["पाकिस्तान", "पेट्रोलियम"]
 LOGS_DIRECTORY = os.path.join(os.getcwd(), "logs")  # directory to store all log files
 POSTS_DIRECTORY = os.path.join(
     os.getcwd(), "posts"
@@ -90,7 +90,7 @@ def fetch_multiple_page_posts(search_queries: List[str]) -> None:
                     os.path.join(POSTS_DIRECTORY, f"{search_query}_posts.json"), posts
                 )
                 current_page += 1
-                time.sleep(3) # remove this line if you want to fetch posts faster
+                time.sleep(3)  # remove this line if you want to fetch posts faster
             except KeyboardInterrupt:
                 print(f"Stop fetching posts from page {current_page}")
                 log_file_path = os.path.join(LOGS_DIRECTORY, f"{search_query}_log.json")
